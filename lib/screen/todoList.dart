@@ -24,19 +24,27 @@ class _TodoListState extends State<TodoList> {
       body: ListView.builder(
           itemCount: widget.todoList.length,
           itemBuilder: (context, index) {
-            return ListTile(
-              title: Text(widget.todoList[index].title),
-              subtitle: Text(widget.todoList[index].description),
-              trailing: Checkbox(
-                value: widget.todoList[index].status,
-                onChanged: (value) {
-                  setState(() {
-                    widget.todoList[index].status = value!;
-                  });
-                },
-              ),
-            );
+            return TodoTile(index);
           }),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+
+  ListTile TodoTile(int index) {
+    return ListTile(
+      title: Text(widget.todoList[index].title),
+      subtitle: Text(widget.todoList[index].description),
+      trailing: Checkbox(
+        value: widget.todoList[index].status,
+        onChanged: (value) {
+          setState(() {
+            widget.todoList[index].status = value!;
+          });
+        },
+      ),
     );
   }
 }
