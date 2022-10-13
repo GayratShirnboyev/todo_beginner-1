@@ -5,6 +5,30 @@ class Task extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Task'),
+      ),
+      body: Column(
+        children: [
+          TextField(
+            decoration: const InputDecoration(
+              hintText: 'Title',
+            ),
+          ),
+          TextField(
+            maxLines: 5,
+            keyboardType: TextInputType.multiline,
+            decoration: const InputDecoration(
+              hintText: 'Description',
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Add'),
+          ),
+        ],
+      ),
+    );
   }
 }

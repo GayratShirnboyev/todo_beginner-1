@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:todo_beginner/screen/task.dart';
 
 import '../todo.dart';
 
@@ -27,7 +28,10 @@ class _TodoListState extends State<TodoList> {
             return TodoTile(index);
           }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const Task()));
+        },
         child: Icon(Icons.add),
       ),
     );
