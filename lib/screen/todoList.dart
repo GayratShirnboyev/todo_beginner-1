@@ -37,17 +37,19 @@ class _TodoListState extends State<TodoList> {
     );
   }
 
-  ListTile TodoTile(int index) {
-    return ListTile(
-      title: Text(widget.todoList[index].title),
-      subtitle: Text(widget.todoList[index].description),
-      trailing: Checkbox(
-        value: widget.todoList[index].status,
-        onChanged: (value) {
-          setState(() {
-            widget.todoList[index].status = value!;
-          });
-        },
+  Card TodoTile(int index) {
+    return Card(
+      child: ListTile(
+        title: Text(widget.todoList[index].title),
+        subtitle: Text(widget.todoList[index].description),
+        trailing: Checkbox(
+          value: widget.todoList[index].status,
+          onChanged: (value) {
+            setState(() {
+              widget.todoList[index].status = value!;
+            });
+          },
+        ),
       ),
     );
   }
