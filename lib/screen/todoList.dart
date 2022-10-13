@@ -20,21 +20,23 @@ class TodoList extends StatefulWidget {
 class _TodoListState extends State<TodoList> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: widget.todoList.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(widget.todoList[index].title),
-            subtitle: Text(widget.todoList[index].description),
-            trailing: Checkbox(
-              value: widget.todoList[index].status,
-              onChanged: (value) {
-                setState(() {
-                  widget.todoList[index].status = value!;
-                });
-              },
-            ),
-          );
-        });
+    return Scaffold(
+      body: ListView.builder(
+          itemCount: widget.todoList.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text(widget.todoList[index].title),
+              subtitle: Text(widget.todoList[index].description),
+              trailing: Checkbox(
+                value: widget.todoList[index].status,
+                onChanged: (value) {
+                  setState(() {
+                    widget.todoList[index].status = value!;
+                  });
+                },
+              ),
+            );
+          }),
+    );
   }
 }
