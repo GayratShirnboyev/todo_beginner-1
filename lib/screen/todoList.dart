@@ -30,7 +30,7 @@ class _TodoListState extends State<TodoList> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => const Task()));
+              context, MaterialPageRoute(builder: (context) => Task()));
         },
         child: Icon(Icons.add),
       ),

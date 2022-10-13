@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_beginner/screen/todoList.dart';
 
 class Task extends StatelessWidget {
   Task({Key? key}) : super(key: key);
@@ -29,7 +30,10 @@ class Task extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => TodoList()));
+            },
             child: const Text('Add'),
           ),
         ],
