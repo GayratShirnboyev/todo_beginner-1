@@ -8,11 +8,7 @@ import '../todo.dart';
 
 class TodoList extends StatefulWidget {
   TodoList({Key? key}) : super(key: key);
-  List<Todo> todoList = [
-    Todo(title: 'Todo 1', description: 'Description 1', status: true),
-    Todo(title: 'Todo 2', description: 'Description 2', status: false),
-    Todo(title: 'Todo 3', description: 'Description 3', status: true),
-  ];
+  List<Todo> todoList = [];
 
   @override
   State<TodoList> createState() => _TodoListState();
@@ -28,9 +24,13 @@ class _TodoListState extends State<TodoList> {
             return TodoTile(index);
           }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
+        onPressed: () async {
+          Todo todo = await Navigator.push(
               context, MaterialPageRoute(builder: (context) => Task()));
+
+          setState(() {
+            widget.todoList.add(todo);
+          });
         },
         child: Icon(Icons.add),
       ),

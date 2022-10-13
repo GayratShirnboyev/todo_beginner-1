@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todo_beginner/screen/todoList.dart';
 
+import '../todo.dart';
+
 class Task extends StatelessWidget {
   Task({Key? key}) : super(key: key);
   // Define a controller for the text field.
@@ -31,8 +33,11 @@ class Task extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => TodoList()));
+              Todo task = Todo(
+                  title: titleController.text,
+                  description: descriptionController.text,
+                  status: false);
+              Navigator.pop(context, task);
             },
             child: const Text('Add'),
           ),
