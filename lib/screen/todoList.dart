@@ -8,8 +8,9 @@ import '../todo.dart';
 class TodoList extends StatefulWidget {
   TodoList({Key? key}) : super(key: key);
   List<Todo> todoList = [
-    Todo(title: 'Todo 1', description: 'Description 1', status: false),
+    Todo(title: 'Todo 1', description: 'Description 1', status: true),
     Todo(title: 'Todo 2', description: 'Description 2', status: false),
+    Todo(title: 'Todo 3', description: 'Description 3', status: true),
   ];
 
   @override
@@ -27,7 +28,11 @@ class _TodoListState extends State<TodoList> {
             subtitle: Text(widget.todoList[index].description),
             trailing: Checkbox(
               value: widget.todoList[index].status,
-              onChanged: (value) {},
+              onChanged: (value) {
+                setState(() {
+                  widget.todoList[index].status = value!;
+                });
+              },
             ),
           );
         });
