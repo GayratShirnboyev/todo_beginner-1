@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Task extends StatelessWidget {
-  const Task({Key? key}) : super(key: key);
+  Task({Key? key}) : super(key: key);
+  // Define a controller for the text field.
+  TextEditingController titleController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -12,6 +15,7 @@ class Task extends StatelessWidget {
       body: Column(
         children: [
           TextField(
+            controller: titleController,
             decoration: const InputDecoration(
               hintText: 'Title',
             ),
@@ -19,6 +23,7 @@ class Task extends StatelessWidget {
           TextField(
             maxLines: 5,
             keyboardType: TextInputType.multiline,
+            controller: descriptionController,
             decoration: const InputDecoration(
               hintText: 'Description',
             ),
